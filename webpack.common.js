@@ -31,6 +31,11 @@ module.exports = {
       "@": path.resolve(__dirname, "src"),
     },
   },
+  optimization: {
+    splitChunks: { // 将共同的依赖单独提取出来作为一个 bundle
+      chunks: 'all',
+    },
+  },
   module: {
     rules: [
       {
