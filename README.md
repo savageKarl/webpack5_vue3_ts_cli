@@ -8,5 +8,5 @@
 - 使用最新的vue3 script setup 语法
 - 使用 babel 打包 typescript ，配置js向后兼容
 - 使用 sass 预处理器
-- 使用 postcss ，配置css向后兼容
+- 使用 postcss，配置css向后兼容
 - 引入 element-plus 组件库

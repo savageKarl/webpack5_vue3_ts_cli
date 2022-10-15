@@ -2,12 +2,13 @@
 import { ref } from 'vue'
 const msg = ref('Hello world!');
 
+console.debug(process.env.VUE_APP_TITLE)
+
 </script>
 
 <template>
   <div>
     <div class="example">{{ msg }}</div>
-
     <el-row class="mb-4">
       <el-button>Default</el-button>
       <el-button type="primary">Primary</el-button>

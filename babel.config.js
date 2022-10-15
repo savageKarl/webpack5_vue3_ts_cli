@@ -7,5 +7,8 @@ module.exports = {
     ['@babel/preset-typescript', {
       allExtensions: true,        // 支持所有文件扩展名，必须配置，不然babel不会解析vue文件的ts，将导致报错
     }], // 用于解析 typescript
-  ]
+  ],
+  // cacheDirectory: true,
 }
+
+// fork-ts-checker-webpack-plugin可以进行类型检查
