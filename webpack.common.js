@@ -1,5 +1,5 @@
 const path = require("path");
-const { DefinePlugin, ProvidePlugin } = require("webpack");
+const { DefinePlugin } = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { VueLoaderPlugin } = require("vue-loader");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -9,7 +9,9 @@ const AutoImport = require("unplugin-auto-import/webpack");
 const Components = require("unplugin-vue-components/webpack");
 const { ElementPlusResolver } = require("unplugin-vue-components/resolvers");
 
-console.debug(require("dotenv").config({ path: `${__dirname}/.env.development` }))
+console.debug(
+  require("dotenv").config({ path: `${__dirname}/.env.development` })
+);
 
 module.exports = {
   entry: "./src/main.ts",
@@ -19,15 +21,12 @@ module.exports = {
     }),
     new VueLoaderPlugin(),
     new DefinePlugin({
-      __VUE_OPTIONS_API__: false, // 表示是否支持 options api 的写法，默认是 true
-      __VUE_PROD_DEVTOOLS__: false,// 表示生产包是否要继续支持 devtools 插件，默认是 false
+      __VUE_OPTIONS_API__: true, // 表示是否支持 options api 的写法，默认是 true
+      __VUE_PROD_DEVTOOLS__: false, // 表示生产包是否要继续支持 devtools 插件，默认是 false
     }),
     new MiniCssExtractPlugin({
       filename: "css/[contenthash].bundle.css",
     }),
-    // new ProvidePlugin({
-    //   process: "process/browser",
-    // }),
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
@@ -98,7 +97,7 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
         loader: "babel-loader",
       },
       {
